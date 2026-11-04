@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alex Morgan – Product Designer</title>
+<meta name="description" content="Resume and portfolio of Alex Morgan, product designer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ===== EDIT YOUR COLORS HERE ===== */
+  :root {
+    --bg: #f2f4f7;
+    --surface: #ffffff;
+    --ink: #14213d;
+    --muted: #55607a;
+    --line: #d9dee8;
+    --accent: #2f5bff;
+    --accent-ink: #ffffff;
+    --pop: #ffb703;
+    --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+    --body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e1424;
+      --surface: #172038;
+      --ink: #eef1f8;
+      --muted: #a2adc7;
+      --line: #2a3555;
+      --accent: #7f9cff;
+      --accent-ink: #0e1424;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 1.0625rem/1.65 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0; letter-spacing: -0.02em; }
+
+  .layout {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 4rem;
+  }
+
+  /* ===== Sidebar ===== */
+  .side {
+    position: sticky; top: 0;
+    align-self: start;
+    height: 100vh;
+    padding: 3.5rem 0 2rem;
+    display: flex; flex-direction: column; gap: 1.75rem;
+  }
+  .avatar {
+    width: 96px; height: 96px; border-radius: 50%;
+    background: var(--accent);
+    color: var(--accent-ink);
+    display: grid; place-items: center;
+    font: 800 2rem var(--display);
+    box-shadow: 8px 8px 0 var(--pop);
+    overflow: hidden;
+  }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .side h1 { font-size: 2.6rem; font-weight: 800; }
+  .role { color: var(--muted); margin: .5rem 0 0; }
+  .status {
+    display: inline-flex; align-items: center; gap: .5rem;
+    font-size: .9rem; font-weight: 500;
+    background: var(--surface); border: 1px solid var(--line);
+    padding: .35rem .8rem; border-radius: 999px; width: fit-content;
+  }
+  .status i { width: 8px; height: 8px; border-radius: 50%; background: #1fb97a; }
+  nav ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .25rem; }
+  nav a {
+    display: block; text-decoration: none; padding: .4rem 0 .4rem 1rem;
+    border-left: 3px solid var(--line); color: var(--muted); font-weight: 500;
+    transition: color .15s, border-color .15s;
+  }
+  nav a:hover, nav a.active { color: var(--ink); border-color: var(--accent); }
+  .side-foot { margin-top: auto; display: grid; gap: .75rem; }
+  .btn {
+    display: inline-block; text-align: center; text-decoration: none; cursor: pointer;
+    background: var(--accent); color: var(--accent-ink);
+    font: 600 1rem var(--body); padding: .8rem 1.4rem; border-radius: 10px; border: 0;
+  }
+  .btn.ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+  .btn:hover { filter: brightness(1.08); }
+
+  /* ===== Content ===== */
+  main { padding: 3.5rem 0 4rem; }
+  section { padding: 0 0 4.5rem; scroll-margin-top: 2rem; }
+  h2 { font-size: 2rem; margin-bottom: 1.75rem; }
+  .lead { font: 700 clamp(1.6rem, 3vw, 2.2rem)/1.25 var(--display); letter-spacing: -0.02em; max-width: 28ch; margin: 0 0 1.5rem; }
+  p { margin: 0 0 1rem; max-width: 62ch; }
+  .muted { color: var(--muted); }
+
+  /* Experience timeline (real sequence, so the line earns its place) */
+  .timeline { list-style: none; margin: 0; padding: 0 0 0 1.75rem; border-left: 2px solid var(--line); display: grid; gap: 2.25rem; }
+  .timeline li { position: relative; }
+  .timeline li::before {
+    content: ""; position: absolute; left: calc(-1.75rem - 7px); top: .45rem;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--bg); border: 3px solid var(--accent);
+  }
+  .timeline li:first-child::before { background: var(--accent); }
+  .when { font-size: .9rem; color: var(--muted); font-weight: 500; }
+  .timeline h3 { font-size: 1.3rem; margin: .15rem 0 .1rem; }
+  .org { font-weight: 600; margin-bottom: .6rem; }
+  .timeline ul { margin: 0; padding-left: 1.1rem; color: var(--muted); }
+  .timeline ul li { padding: .15rem 0; }
+  .timeline ul li::before { display: none; }
+
+  /* Projects */
+  .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+  .project {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    overflow: hidden; text-decoration: none; display: flex; flex-direction: column;
+    transition: transform .2s, border-color .2s;
+  }
+  .project:hover { transform: translateY(-4px); border-color: var(--accent); }
+  .thumb { aspect-ratio: 16 / 10; position: relative; overflow: hidden; background: var(--accent); }
+  .thumb.b { background: var(--ink); }
+  .thumb.c { background: var(--pop); }
+  .thumb.d { background: #1fb97a; }
+  /* Replace these shapes with <img src="your-screenshot.jpg" alt="..."> */
+  .thumb::before { content: ""; position: absolute; width: 55%; aspect-ratio: 1; border-radius: 50%; background: rgba(255,255,255,.25); right: -8%; top: -20%; }
+  .thumb::after { content: ""; position: absolute; width: 40%; height: 55%; border-radius: 12px; background: rgba(255,255,255,.88); left: 12%; bottom: -12%; }
+  .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+  .project-body { padding: 1.25rem 1.25rem 1.4rem; }
+  .project h3 { font-size: 1.2rem; margin-bottom: .4rem; }
+  .project p { font-size: .98rem; color: var(--muted); margin-bottom: .9rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .tag { font-size: .8rem; font-weight: 500; padding: .15rem .6rem; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); }
+
+  /* Skills & education */
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .two h3 { font-size: 1.15rem; margin-bottom: .9rem; }
+  .skills { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .skills span { background: var(--surface); border: 1px solid var(--line); padding: .3rem .85rem; border-radius: 8px; font-weight: 500; font-size: .95rem; }
+  .edu { margin-bottom: 1rem; }
+  .edu strong { display: block; }
+
+  /* Contact */
+  .contact { background: var(--ink); color: var(--bg); border-radius: 18px; padding: 2.5rem; }
+  .contact h2 { margin-bottom: .75rem; }
+  .contact p { color: inherit; opacity: .8; }
+  .contact .btn { background: var(--pop); color: #14213d; }
+  .links { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 1.5rem; }
+  .links a { opacity: .85; }
+  @media (prefers-color-scheme: dark) { .contact { background: var(--surface); color: var(--ink); } }
+
+  footer { color: var(--muted); font-size: .9rem; padding-top: 1.5rem; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; gap: 0; }
+    .side { position: static; height: auto; padding: 2.5rem 0 1rem; }
+    .side nav, .side-foot .ghost { display: none; }
+    .side-foot { margin-top: 0; }
+    .two { grid-template-columns: 1fr; }
+    .contact { padding: 1.75rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+  @media print {
+    .side nav, .side-foot, .status { display: none; }
+    .layout { display: block; }
+    .side { position: static; height: auto; padding: 0; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .project, .contact { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- ===== SIDEBAR ===== -->
+  <header class="side">
+    <div class="avatar" aria-hidden="true">AM</div>
+    <!-- Prefer a photo? Replace the line above with:
+    <div class="avatar"><img src="photo.jpg" alt="Portrait of Alex Morgan"></div> -->
+    <div>
+      <h1>Alex Morgan</h1>
+      <p class="role">Product designer based in New Jersey</p>
+    </div>
+    <span class="status"><i></i> Open to new projects</span>
+
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#work">Selected work</a></li>
+        <li><a href="#skills">Skills and education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="side-foot">
+      <a class="btn" href="resume.pdf" download>Download résumé</a>
+      <button class="btn ghost" onclick="window.print()">Print this page</button>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+    <section id="about">
+      <p class="lead">I design clear, friendly products people actually finish using.</p>
+      <p>I’m a product designer with seven years of experience across fintech, health and developer tools. I work from research through to shipped interface, and I’m happiest when I’m sitting next to the engineers building it.</p>
+      <p class="muted">Right now I’m leading design for a payments dashboard used by 40,000 small businesses.</p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <ol class="timeline">
+        <li>
+          <span class="when">2023 – Present</span>
+          <h3>Senior Product Designer</h3>
+          <div class="org">Northwind Pay</div>
+          <ul>
+            <li>Redesigned onboarding, raising completed signups by 28%.</li>
+            <li>Built and maintain a design system used by 6 product teams.</li>
+            <li>Mentor two junior designers.</li>
+          </ul>
+        </li>
+        <li>
+          <span class="when">2020 – 2023</span>
+          <h3>Product Designer</h3>
+          <div class="org">Fieldnote Health</div>
+          <ul>
+            <li>Led the patient messaging redesign from research to launch.</li>
+            <li>Ran 50+ usability sessions and turned findings into a shared roadmap.</li>
+          </ul>
+        </li>
+        <li>
+          <span class="when">2018 – 2020</span>
+          <h3>UI Designer</h3>
+          <div class="org">Brightside Studio</div>
+          <ul>
+            <li>Delivered websites and apps for 15 clients across retail and education.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="work">
+      <h2>Selected work</h2>
+      <div class="projects">
+        <a class="project" href="#">
+          <div class="thumb"></div>
+          <div class="project-body">
+            <h3>Payments dashboard</h3>
+            <p>A simpler way for small businesses to track invoices and payouts.</p>
+            <div class="tags"><span class="tag">Product design</span><span class="tag">Design system</span></div>
+          </div>
+        </a>
+        <a class="project" href="#">
+          <div class="thumb b"></div>
+          <div class="project-body">
+            <h3>Patient messaging</h3>
+            <p>Secure chat between patients and clinics, built for non-technical users.</p>
+            <div class="tags"><span class="tag">Research</span><span class="tag">Mobile</span></div>
+          </div>
+        </a>
+        <a class="project" href="#">
+          <div class="thumb c"></div>
+          <div class="project-body">
+            <h3>Trailhead app</h3>
+            <p>A side project that helps hikers plan routes and share conditions.</p>
+            <div class="tags"><span class="tag">iOS</span><span class="tag">Branding</span></div>
+          </div>
+        </a>
+        <a class="project" href="#">
+          <div class="thumb d"></div>
+          <div class="project-body">
+            <h3>Docs redesign</h3>
+            <p>Restructured developer documentation so people find answers faster.</p>
+            <div class="tags"><span class="tag">Information architecture</span><span class="tag">Web</span></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="two">
+        <div>
+          <h3>Skills</h3>
+          <div class="skills">
+            <span>Figma</span><span>Prototyping</span><span>User research</span>
+            <span>Design systems</span><span>HTML and CSS</span><span>Accessibility</span>
+            <span>Workshop facilitation</span>
+          </div>
+        </div>
+        <div>
+          <h3>Education</h3>
+          <div class="edu"><strong>B.A. Interaction Design</strong><span class="muted">Rutgers University, 2018</span></div>
+          <div class="edu"><strong>Google UX Certificate</strong><span class="muted">2019</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact">
+        <h2>Let’s work together</h2>
+        <p>I’m taking on freelance projects and full-time roles. Send me a note and I’ll reply within two days.</p>
+        <a class="btn" href="mailto:hello@example.com">Email me</a>
+        <div class="links">
+          <a href="https://linkedin.com/in/yourname">LinkedIn</a>
+          <a href="https://github.com/yourname">GitHub</a>
+          <a href="https://dribbble.com/yourname">Dribbble</a>
+        </div>
+      </div>
+      <footer>© <span id="year">2026</span> Alex Morgan</footer>
+    </section>
+  </main>
+</div>
+
+<script>
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Highlight the nav link for the section in view
+  const links = document.querySelectorAll('nav a');
+  const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-35% 0px -55% 0px' });
+  sections.forEach(s => s && io.observe(s));
+</script>
+</body>
+</html>
